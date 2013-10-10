@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="list_item_normal">#f0f0f0</color>
+    <color name="list_item_focus">#e0e0e0</color>
+    <color name="chat_bg">#dbe5f0</color>
+</resources>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:background="@drawable/list_bg_selector" >
+
+    <View
+        android:id="@+id/head"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+		android:layout_marginTop="10dp"
+        android:layout_marginLeft="8dp"
+        android:background="@drawable/head" />
+
+    <TextView
+        android:id="@+id/nick"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@id/head"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+    <TextView
+        android:id="@+id/distance"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@id/head"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textSize="16sp"
+        android:text="0.1公里以内"
+        android:textColor="#404040"/>
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="left|center_vertical"
+        android:layout_toRightOf="@id/nick"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:background="@drawable/textview_gray_bg"
+        android:textColor="#404040"
+        android:textSize="16sp" />
+
+</RelativeLayout>

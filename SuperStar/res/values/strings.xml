@@ -1,0 +1,55 @@
+<resources>
+
+    <string name="app_name">超级明星榜</string>
+    <string name="common_title">超级明星榜</string>
+    <string name="login">登　　录</string>
+    <string name="register">注　　册</string>
+    <string name="user_name">邮　箱</string>
+    <string name="nick">昵　称</string>
+    <string name="password">密　码(6-20位)</string>
+    <string name="confirm_password">确认密码</string>
+    <string name="done">完　　成</string>
+    
+    <string name="data_format_error">服务器返回数据格式错误</string>
+    
+	<string name="register_new">没有账号？注册 超级明星榜</string>
+	<string name="forget_password">忘记密码？</string>
+	<string name="register_info">您也可以使用以下账号登陆</string>
+	
+	<string name="weibo_login">新浪微博</string>
+	<string name="qq_login"> QQ账号</string>
+	
+	<string name="query_failed">网络访问失败</string>
+	
+	<string name="register_success">注册成功</string>
+	<string name="register_failed">注册失败</string>
+	<string name="reg_input_error">注册信息输入错误</string>
+	<string name="detail_input_error">信息输入错误</string>
+	<string name="save_info_success">信息保存成功</string>
+	
+	<string name="login_input_error">登录信息输入错误</string>
+	
+	<string name="user_exist">用户已经存在</string>
+	
+	<string name="login_success">登录成功</string>
+	<string name="login_failed">登录失败</string>
+	<string name="user_closed">账户暂时被关闭</string>
+	<string name="logout_success">注销成功</string>
+	<string name="logout_failed">注销失败</string>
+		
+	<string name="loading">正在加载...</string>
+	<string name="failed_reload">加载失败，请重试</string>
+	<string name="failed_click_reload">加载失败，请点击屏幕重试</string>
+	
+	<string name="contact_user_done">已向对方发送请求</string>
+	<string name="contact_user_failed">发送请求失败，请重试</string>
+	
+	<string name="send_msg_success">发送成功</string>
+	<string name="send_msg_failed">发送失败</string>
+	
+	<string name="pull_to_refresh_pull_label">拉动刷新...</string>
+    <string name="pull_to_refresh_release_label">松开可立即刷新...</string>
+    <string name="pull_to_refresh_refreshing_label">正在加载...</string>
+    <string name="pull_to_refresh_tap_label">Tap to refresh...</string>
+    <string name="string_update_time">Tap to refresh...</string>
+</resources>

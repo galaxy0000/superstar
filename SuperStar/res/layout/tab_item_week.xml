@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:id="@+id/tab" 
+    android:focusableInTouchMode="true"
+    android:background="@drawable/tab_bg_focus" >
+    
+    <View
+        android:layout_width="2dp"
+        android:layout_marginTop="1dp"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/tab_split" />
+        
+	<ImageView
+	    android:id="@+id/icon"
+	    android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_centerHorizontal="true"
+    	android:layout_marginTop="10dp"
+    	android:layout_marginBottom="20dp"
+    	android:clickable="false"
+    	android:background="@drawable/session_icon_focus" />
+	<TextView 
+	    android:layout_width="wrap_content"
+    	android:layout_height="20dp"
+    	android:layout_alignParentBottom="true"
+    	android:layout_marginBottom="4dp"
+    	android:layout_centerHorizontal="true"
+    	android:id="@+id/title"
+    	android:clickable="false"
+    	android:textColor="#eeeeee"
+    	android:text="周排行"/>
+
+	<TextView
+	    android:id="@+id/change"
+	    android:layout_width="20dp"
+	    android:layout_height="20dp"
+	    android:layout_marginTop="2dp"
+	    android:layout_marginLeft="2dp"
+	    android:layout_toRightOf="@id/icon"
+	    android:background="@drawable/unread_num"
+	    android:textColor="#ffffff"
+	    android:gravity="center"
+	    android:textSize="12sp"
+	    android:visibility="gone" />
+</RelativeLayout>

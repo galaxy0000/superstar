@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#d3d3d3"
+            android:paddingBottom="15dp" >
+
+            <RelativeLayout
+                android:id="@+id/infoLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="210dp"
+                android:background="@drawable/buddy_round_bg"
+                android:padding="6dp"
+                android:visibility="visible" >
+
+                <View
+                    android:id="@+id/head"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/head" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/send_rose"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1.0"
+                        android:text="送  花"/>
+                    <Button
+                        android:id="@+id/send_car"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1.0"
+                        android:text="送  车"/>
+                    
+                    <Button
+                        android:id="@+id/send_diamond"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1.0"
+                        android:text="送钻石"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/nick"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@id/head"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="林志玲"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/city"
+                    android:layout_width="fill_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_toRightOf="@id/head"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="中国-台北"
+                    android:textColor="#404040"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/age"
+                    android:layout_width="fill_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="62dp"
+                    android:layout_toRightOf="@id/head"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="1985-01-01"
+                    android:textColor="#404040"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/lastLogin"
+                    android:layout_width="fill_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="88dp"
+                    android:layout_toRightOf="@id/head"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="175 50kg"
+                    android:textColor="#404040"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/best_rank"
+                    android:layout_width="fill_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="114dp"
+                    android:layout_toRightOf="@id/head"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="最高排名：7"
+                    android:textColor="#404040"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/introLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/infoLayout"
+                android:visibility="visible" >
+
+                <View
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/intro_icon" />
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="8dp"
+                    android:singleLine="true"
+                    android:text="个人介绍"
+                    android:textColor="#404040"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/intro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="35dp"
+                    android:background="@drawable/textview_white_bg"
+                    android:minHeight="60dp"
+                    android:textColor="#404040"
+                    android:textSize="16sp"
+                    android:text="林志玲（Lin Chi-ling），中国台湾著名女艺人、身兼演员、模特、主持人于一职。1974年11月29日出生于台北，毕业于加拿大多伦多大学。拥有清秀面庞配着志玲招牌甜甜微笑，气质优雅，有时有着邻家大姐姐的随和、有时透着完美女神的优雅气质，集美丽与智慧于一身，在大中华区亦具知名度的气质女星，从而获得较高人气。2003年，林志玲取代萧蔷当选“台湾第一美女”，其后接拍了无数名牌广告。2007年与吴宇森合作拍摄大片《赤壁》，饰演周瑜的妻子小乔，之后出演了《刺陵》《决战刹马镇》《幸福额度》等多部影视剧获得无数赞赏。2011年，林志玲收入近2亿新台币，使其连续八年蝉联台湾最富女模。由其主演的《天机·富春山居图》已于2013年6月9日上映。" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/progress"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:clickable="true"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+</FrameLayout>

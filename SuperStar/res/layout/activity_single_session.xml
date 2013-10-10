@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff" >
+
+    <com.ycp.yuanchuangpai.PullRefreshListView
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="60dp"
+        android:listSelector="@null"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:background="@color/chat_bg" />
+
+    <EditText 
+        android:id="@+id/message"
+        android:layout_width="fill_parent"
+        android:layout_height="56dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="2dp"
+        android:maxLength="500"
+        android:layout_alignParentBottom="true" />
+    <Button 
+        android:id="@+id/send"
+        android:layout_width="80dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="2dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:textSize="22dp"
+        android:textColor="#909090"
+        android:text="发送"/>
+    
+    <RelativeLayout
+        android:id="@+id/progress"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:clickable="true"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+</RelativeLayout>

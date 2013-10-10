@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="xintai">
+        <item>等人找我</item>
+        <item>主导创业</item>
+        <item>开放心态</item>
+    </string-array>
+    <string-array name="dingwei">
+        <item>创始人</item>
+        <item>技术合伙人</item>
+        <item>营销合伙人</item>
+        <item>运营合伙人</item>
+        <item>设计师</item>
+        <item>产品合伙人</item>
+    </string-array>
+
+</resources>
