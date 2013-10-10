@@ -365,7 +365,29 @@ public class HttpManager {
 		}
 		return "";
 	}
-
+	static public void asyncPost(final String urlString,
+			final byte[] postData, final boolean encrypt, final Object queryId,
+			final WeakReference<HttpQueryCallback> weakCallback) {
+		(new Thread(new Runnable() {
+			@Override
+			public void run() {
+				InputStream result = syncPost(urlString, postData, encrypt);
+				HttpQueryCallback callback = weakCallback.get();
+				if (callback != null) {
+					if (result == null) {
+						callback.onQueryComplete(HttpQueryCallback.STATE_ERROR, queryId, null);
+					} else {
+						callback.onQueryComplete(HttpQueryCallback.STATE_OK, queryId, result);
+					}
+				}
+			}
+		})).start();
+	}
+	static public void asyncPost(final String urlString,
+			final byte[] postData, final Object queryId,
+			final WeakReference<HttpQueryCallback> weakCallback) {
+		asyncPost(urlString, postData, false, queryId, weakCallback);
+	}
 	static public void asyncPost(final String urlString,
 			final String postStr, final boolean encrypt,
 			final String charset, final Object queryId,

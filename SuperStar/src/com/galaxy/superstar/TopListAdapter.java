@@ -112,12 +112,12 @@ public class TopListAdapter extends BaseAdapter {
 			((TextView)convertView.findViewById(R.id.name)).setText(data.get(position).getName());			
 		}
 
-//		if(data.get(position).getDescription() != null) {
-//			((TextView)convertView.findViewById(R.id.desc)).setText(data.get(position).getDescription());
-//		}
-//		((TextView)convertView.findViewById(R.id.rose_no)).setText("" + data.get(position).getRose());
-//		((TextView)convertView.findViewById(R.id.car_no)).setText("" + data.get(position).getCar());
-//		((TextView)convertView.findViewById(R.id.diamond_no)).setText("" + data.get(position).getDiamand());
+		if(data.get(position).getMark() != null) {
+			((TextView)convertView.findViewById(R.id.desc)).setText(data.get(position).getMark());
+		}
+		((TextView)convertView.findViewById(R.id.rose_no)).setText("" + data.get(position).getGifts(0).getNum());
+		((TextView)convertView.findViewById(R.id.car_no)).setText("" + data.get(position).getGifts(1).getNum());
+		((TextView)convertView.findViewById(R.id.diamond_no)).setText("" + data.get(position).getGifts(2).getNum());
 		
 		return convertView;
 	}

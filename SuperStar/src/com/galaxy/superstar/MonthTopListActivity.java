@@ -1,15 +1,23 @@
 package com.galaxy.superstar;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
 import java.util.Random;
 
 import com.galaxy.protobuf.TopList.PersonInfo;
+import com.galaxy.protobuf.TopList.RespDataPackage;
+import com.galaxy.protobuf.TopList.RespDataType;
+import com.galaxy.protobuf.TopList.RespGetList;
 import com.galaxy.superstar.HttpManager.HttpQueryCallback;
+import com.galaxy.superstar.PullRefreshListView.OnRefreshListener;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
 
@@ -26,26 +34,33 @@ public class MonthTopListActivity extends CommonTitleBarActivity {
 			runOnUiThread(new Runnable() {
 				@Override
 				public void run() {
-					findViewById(R.id.state).setVisibility(View.GONE);
-					findViewById(R.id.starlist).setVisibility(View.VISIBLE);
+					listview.onRefreshComplete(true);
+					
 					if(state == HttpQueryCallback.STATE_OK) {
+						stateText.setVisibility(View.GONE);
+						findViewById(R.id.starlist).setVisibility(View.VISIBLE);
+						
+						RespGetList respGetList = null;
+						try {
+							RespDataPackage	respDataPackage = RespDataPackage.parseFrom((InputStream)result);
+							if (respDataPackage.getType() == RespDataType.DATA_TYPE_RespGetList)
+							{
+								respGetList = RespGetList.parseFrom(respDataPackage.getData());
+							}
+						} catch (IOException e) {
+							e.printStackTrace();
+							Util.showToast(MonthTopListActivity.this, "数据解析失败", Toast.LENGTH_SHORT);
+							return;
+						}
 						adapter = new TopListAdapter(MonthTopListActivity.this);
-						Random random = new Random(System.currentTimeMillis());
-						for(int i = 0; i < 24; i++) {
-							PersonInfo.Builder builder = PersonInfo.newBuilder();
-							builder.setId(i);
-							builder.setMale(i % 2 == 0 ? true : false);
-							builder.setName("我 就 是 : " + i);
-							builder.setMark(i % 2 == 0 ? "粉丝们，你们好。。。。" : "我是屌丝女神，快来给我加人气");
-//							builder.setRose(random.nextInt(4999));
-//							builder.setCar(random.nextInt(299));
-//							builder.setDiamand(random.nextInt(99));
-
-							adapter.data.add(builder.build());
+						List<PersonInfo> infos = respGetList.getInfosList();
+						for(int i = 0; i < infos.size(); i++) {
+							adapter.data.add(infos.get(i));
 						}
 						listview.setAdapter(adapter);
 					} else {
 						stateText.setText(getText(R.string.failed_click_reload));
+						stateText.setClickable(true);
 					}
 				}
 			});
@@ -82,6 +97,12 @@ public class MonthTopListActivity extends CommonTitleBarActivity {
 				Intent intent = new Intent(MonthTopListActivity.this, StarDetailActivity.class);
 				startActivity(intent);
 				getParent().overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
+			}
+		});
+		listview.setOnRefreshListener(new OnRefreshListener() {
+			@Override
+			public void onRefresh() {
+				Util.getWeekList(getlistCallback);
 			}
 		});
 		

@@ -308,11 +308,29 @@ public class Util{
 		String url = AppConstants.service_url + "move/about";
 		HttpManager.asyncGetString(url, new WeakReference<HttpManager.HttpQueryCallback>(callback));
 	}
-	///////////////////////////////////////////////////
 	private static String appendParams(String str) {
 		return AppConstants.service_url + str + "login_code=" + SuperApp.instance.loginStr + "&device_token=" + SuperApp.instance.deviceToken;
 	}
 	
+	///////////////////////////////////////////////////
+	public static void getWeekList(HttpQueryCallback callback) {
+		ReqGetList.Builder reqBuilder = ReqGetList.newBuilder();
+		reqBuilder.setListId(0);
+		reqBuilder.setDesc(true);
+		reqBuilder.setStartIndex(0);
+		reqBuilder.setNum(10);
+		
+		ReqGetList req = reqBuilder.build();
+		
+		ReqDataPackage.Builder builder = ReqDataPackage.newBuilder();
+		builder.setType(ReqDataType.DATA_TYPE_ReqGetList);
+		builder.setVersion(0);
+		builder.setData(req.toByteString());
+		
+		ReqDataPackage data = builder.build();
+		
+		HttpManager.asyncPost(HttpManager.url, data.toByteArray(), null, new WeakReference<HttpManager.HttpQueryCallback>(callback));		
+	}
 	public static void getMonthList(HttpQueryCallback callback) {
 		ReqGetList.Builder reqBuilder = ReqGetList.newBuilder();
 		reqBuilder.setListId(0);
@@ -329,21 +347,7 @@ public class Util{
 		
 		ReqDataPackage data = builder.build();
 		
-		InputStream result = HttpManager.syncPost(HttpManager.url, data.toByteArray());
-		
-		RespDataPackage	respDataPackage;
-		try {
-			respDataPackage = RespDataPackage.parseFrom(result);
-			if (respDataPackage.getType() == RespDataType.DATA_TYPE_RespGetList)
-			{
-				RespGetList respGetList = RespGetList.parseFrom(respDataPackage.getData());
-				callback.onQueryComplete(0, null, null);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		callback.onQueryComplete(0, null, null);
+		HttpManager.asyncPost(HttpManager.url, data.toByteArray(), null, new WeakReference<HttpManager.HttpQueryCallback>(callback));		
 	}
     public static void getStarInfo(String starId, HttpQueryCallback callback) {
     }
